@@ -10,6 +10,7 @@ public class ApiBuilder {
     public static final ResourceBundle resource = ResourceBundle.getBundle("config");
     public static final String BASE_URI = resource.getString("automation.base_url");
 
+    public static final String GET_PRODUCTS_LIST = resource.getString("automation.get_products_list");
     public static final String GET_BRANDS_LIST = resource.getString("automation.get_brands_list");
     public static final String GET_USER = resource.getString("automation.get_user_acc_email");
 
@@ -34,7 +35,7 @@ public class ApiBuilder {
     }
 
     public static RequestSpecification getBrandsList() {
-        return getBaseSpecBuilder(GET_BRANDS_LIST)
+        return getBaseSpecBuilder(GET_PRODUCTS_LIST)
                 .build();
     }
 
