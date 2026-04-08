@@ -1,6 +1,8 @@
 package com.sparta.utils;
 
+import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.parsing.Parser;
 import io.restassured.specification.RequestSpecification;
 
 import java.util.Map;
@@ -35,7 +37,7 @@ public class ApiBuilder {
     }
 
     public static RequestSpecification getBrandsList() {
-        return getBaseSpecBuilder(GET_PRODUCTS_LIST)
+        return getBaseSpecBuilder(GET_BRANDS_LIST)
                 .build();
     }
 
@@ -47,5 +49,10 @@ public class ApiBuilder {
     public static RequestSpecification postSearchProduct() {
         return getBaseSpecBuilder(POST_SEARCH_PRODUCT)
                 .build();
+    }
+
+    public static void configure() {
+        // Treat text/html responses as JSON
+        RestAssured.registerParser("text/html", Parser.JSON);
     }
 }
