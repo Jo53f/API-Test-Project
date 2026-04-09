@@ -1,10 +1,11 @@
 package com.sparta.utils;
 
 import com.sparta.pojos.ProductReview;
-import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import io.restassured.RestAssured;
+import io.restassured.parsing.Parser;
 import io.restassured.specification.RequestSpecification;
 
 import java.util.Map;
@@ -28,6 +29,7 @@ public class ApiBuilder {
     public static final String POST_VERIFY_LOGIN = resource.getString("automation.post_verify_login");
     public static final String POST_CREATE_ACCOUNT = resource.getString("automation.post_create_account");
     public static final String POST_PRODUCT_REVIEW = resource.getString("automation.post_product_review");
+    public static final String POST_BRANDS_LIST = resource.getString("automation.post_brands_list");
 
     // PUT endpoints
     public static final String PUT_ALL_BRANDS = resource.getString("automation.put_all_brands");
@@ -44,6 +46,10 @@ public class ApiBuilder {
                 .addHeaders(Map.of(
                         "Accept", "*/*"
                 ))
+                .build();
+    }
+    public static RequestSpecification verifyLogin() {
+        return getBaseSpecBuilder(POST_VERIFY_LOGIN)
                 .build();
     }
 
@@ -79,3 +85,44 @@ public class ApiBuilder {
                 .response();
     }
     }
+    public static RequestSpecification signUp() {
+        return getBaseSpecBuilder(POST_CREATE_ACCOUNT)
+                .build();
+    }
+      
+    public static RequestSpecification getProductsList() {
+        return getBaseSpecBuilder(GET_PRODUCTS_LIST)
+                .build();
+    }
+
+    public static RequestSpecification deleteAccount() {
+        return getBaseSpecBuilder(DELETE_ACCOUNT)
+                .build();
+    }
+
+    public static RequestSpecification postProductsList() {
+        return getBaseSpecBuilder(POST_ALL_PRODUCTS)
+                .build();
+    }
+
+    public static RequestSpecification getBrandsList() {
+        return getBaseSpecBuilder(GET_BRANDS_LIST)
+                .build();
+    }
+
+    public static RequestSpecification putBrandsList() {
+        return getBaseSpecBuilder(PUT_ALL_BRANDS)
+                .build();
+    }
+
+    public static RequestSpecification postBrandsList() {
+        return getBaseSpecBuilder(POST_BRANDS_LIST)
+                .build();
+    }
+
+
+    public static void configure() {
+        // Treat text/html responses as JSON
+        RestAssured.registerParser("text/html", Parser.JSON);
+    }
+}
