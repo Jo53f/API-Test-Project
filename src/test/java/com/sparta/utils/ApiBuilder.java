@@ -2,40 +2,22 @@ package com.sparta.utils;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
-
 import java.util.Map;
 import java.util.ResourceBundle;
 
 public class ApiBuilder {
-    public static final ResourceBundle resource = ResourceBundle.getBundle("config");
+    private static final ResourceBundle resource = ResourceBundle.getBundle("config");
+
     public static final String BASE_URI = resource.getString("automation.base_url");
+    public static final String SEARCH_PATH = resource.getString("automation.post_search_product");
 
-    public static final String GET_PRODUCTS_LIST = resource.getString("automation.get_products_list");
-    public static final String GET_BRANDS_LIST = resource.getString("automation.get_brands_list");
-    public static final String GET_USER = resource.getString("automation.get_user_acc_email");
-
-    public static final String POST_ALL_PRODUCTS = resource.getString("automation.post_all_products");
-    public static final String POST_SEARCH_PRODUCT = resource.getString("automation.post_search_product");
-    public static final String POST_VERIFY_LOGIN = resource.getString("automation.post_verify_login");
-    public static final String POST_CREATE_ACCOUNT = resource.getString("automation.post_create_account");
-
-    public static final String PUT_ALL_BRANDS = resource.getString("automation.put_all_brands");
-    public static final String PUT_UPDATE_ACCOUNT = resource.getString("automation.put_update_account");
-
-    public static final String DELETE_VERIFY_LOGIN = resource.getString("automation.delete_verify_login");
-    public static final String DELETE_ACCOUNT = resource.getString("automation.delete_account");
-
-    private static RequestSpecBuilder getBaseSpecBuilder(String path) {
+    public static RequestSpecification searchProductSpec(String productName) {
         return new RequestSpecBuilder()
                 .setBaseUri(BASE_URI)
-                .setBasePath(path)
-                .addHeaders(Map.of(
-                        "Accept", "*/*"
-                ));
-    }
-
-    public static RequestSpecification getBrandsList() {
-        return getBaseSpecBuilder(GET_PRODUCTS_LIST)
+                .setBasePath(SEARCH_PATH)
+                .setContentType("application/x-www-form-urlencoded")
+                .addFormParam("search_product", productName)
+                .addHeaders(Map.of("Accept", "*/*"))
                 .build();
     }
 }
