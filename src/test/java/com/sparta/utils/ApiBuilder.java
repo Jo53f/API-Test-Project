@@ -37,6 +37,11 @@ public class ApiBuilder {
                 ));
     }
 
+    public static RequestSpecification getProductsList() {
+        return getBaseSpecBuilder(GET_PRODUCTS_LIST)
+                .build();
+    }
+
     public static RequestSpecification getBrandsList() {
         return getBaseSpecBuilder(GET_BRANDS_LIST)
                 .build();
