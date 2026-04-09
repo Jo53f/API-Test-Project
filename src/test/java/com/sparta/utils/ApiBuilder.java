@@ -10,19 +10,20 @@ public class ApiBuilder {
     public static final ResourceBundle resource = ResourceBundle.getBundle("config");
     public static final String BASE_URI = resource.getString("automation.base_url");
 
+    public static final String GET_PRODUCTS_LIST = resource.getString("automation.get_products_list");
     public static final String GET_BRANDS_LIST = resource.getString("automation.get_brands_list");
     public static final String GET_USER = resource.getString("automation.get_user_acc_email");
 
-    public static final String POST_ALL_PRODUCTS = resource.getString("/productsList");
-    public static final String POST_SEARCH_PRODUCT = resource.getString("/searchProduct");
-    public static final String POST_VERIFY_LOGIN = resource.getString("/verifyLogin");
-    public static final String POST_CREATE_ACCOUNT = resource.getString("/createAccount");
+    public static final String POST_ALL_PRODUCTS = resource.getString("automation.post_all_products");
+    public static final String POST_SEARCH_PRODUCT = resource.getString("automation.post_search_product");
+    public static final String POST_VERIFY_LOGIN = resource.getString("automation.post_verify_login");
+    public static final String POST_CREATE_ACCOUNT = resource.getString("automation.post_create_account");
 
-    public static final String PUT_ALL_BRANDS = resource.getString("/brandsList");
-    public static final String PUT_UPDATE_ACCOUNT = resource.getString("/updateAccount");
+    public static final String PUT_ALL_BRANDS = resource.getString("automation.put_all_brands");
+    public static final String PUT_UPDATE_ACCOUNT = resource.getString("automation.put_update_account");
 
-    public static final String DELETE_VERIFY_LOGIN = resource.getString("/verifyLogin");
-    public static final String DELETE_ACCOUNT = resource.getString("/deleteAccount");
+    public static final String DELETE_VERIFY_LOGIN = resource.getString("automation.delete_verify_login");
+    public static final String DELETE_ACCOUNT = resource.getString("automation.delete_account");
 
     private static RequestSpecBuilder getBaseSpecBuilder(String path) {
         return new RequestSpecBuilder()
@@ -32,9 +33,8 @@ public class ApiBuilder {
                         "Accept", "*/*"
                 ));
     }
-
-    public static RequestSpecification getBrandsList() {
-        return getBaseSpecBuilder(GET_BRANDS_LIST)
+    public static RequestSpecification verifyLogin() {
+        return getBaseSpecBuilder(POST_VERIFY_LOGIN)
                 .build();
     }
 }
