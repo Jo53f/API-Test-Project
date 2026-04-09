@@ -37,8 +37,19 @@ public class ApiBuilder {
                 ));
     }
 
+
+    public static RequestSpecification signUp() {
+        return getBaseSpecBuilder(POST_CREATE_ACCOUNT)
+                .build();
+    }
+      
     public static RequestSpecification getProductsList() {
         return getBaseSpecBuilder(GET_PRODUCTS_LIST)
+                .build();
+    }
+
+    public static RequestSpecification deleteAccount() {
+        return getBaseSpecBuilder(DELETE_ACCOUNT)
                 .build();
     }
 
