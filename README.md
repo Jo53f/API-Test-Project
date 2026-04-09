@@ -36,6 +36,8 @@ Maven 3.8.1+
 
 IntelliJ IDEA (recommended)
 
+
+
 📌 Features
 
 Automated tests for 3+ API endpoints
@@ -203,23 +205,7 @@ No critical bugs
 📌 Class Diagram
 
 
-👥 Contributors
-Team of 8 Automation Test Engineers
-Working collaboratively using Scrum methodology.
-
-
-
-
-Project Stucture:
-
-
-
-
-
-
-
-
- ```mermaid 
+```mermaid 
 
 classDiagram  
 direction BT  
@@ -386,6 +372,16 @@ SignUpSteps  ..>  ApiBuilder
 
 ```
 
+
+👥 Contributors
+Team of 8 Automation Test Engineers
+Working collaboratively using Scrum methodology.
+
+
+
+
+
+ 
 
 
 
