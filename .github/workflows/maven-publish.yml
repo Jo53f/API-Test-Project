@@ -6,34 +6,34 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-# name: Java CI with Maven
+name: Java CI with Maven
 
-# on:
-#   push:
-#     branches: [ "dev" ]
-#   pull_request:
-#     branches: [ "main" ]
+on:
+  # push:
+  #   branches: [ "dev" ]
+  pull_request:
+    branches: [ "main" ]
 
-# jobs:
-#   build:
+jobs:
+  build:
 
-#     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-#     steps:
-#     - uses: actions/checkout@v4
-#     - name: Set up JDK 21
-#       uses: actions/setup-java@v4
-#       with:
-#         java-version: '21'
-#         distribution: 'temurin'
-#         cache: maven
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        cache: maven
         
-#     - name: Run Cucumber tests
-#       run: mvn clean verify -Dtest=CucumberRunnerTest
+    - name: Run Cucumber tests
+      run: mvn clean verify -Dtest=CucumberRunnerTest
 
-#     - name: Upload Cucumber Report
-#       if: always()
-#       uses: actions/upload-artifact@v4
-#       with:
-#         name: cucumber-report
-#         path: target
+    - name: Upload Cucumber Report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: cucumber-report
+        path: target
