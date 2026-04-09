@@ -12,5 +12,5 @@ Feature: List All Brands
   @Sad
   Scenario: Send a PUT request for all brands
     Given I send a put request for all brands
-    Then the respons code should return 405
+    Then the response code should return 405
     And I should get the response message This request method is not supported

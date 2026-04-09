@@ -62,8 +62,8 @@ public class ListAllBrandsSteps {
                         .extract().response();
     }
 
-    @Then("the respons code should return 405")
-    public void theResponsCodeShouldReturn() {
+    @Then("the response code should return 405")
+    public void theResponseCodeShouldReturn() {
         MatcherAssert.assertThat(response.jsonPath().getString("responseCode"), Matchers.is("405"));
     }
 
