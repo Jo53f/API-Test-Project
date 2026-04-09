@@ -34,8 +34,14 @@ public class ApiBuilder {
                 ));
     }
 
+
     public static RequestSpecification signUp() {
         return getBaseSpecBuilder(POST_CREATE_ACCOUNT)
+                .build();
+    }
+
+    public static RequestSpecification getBrandsList() {
+        return getBaseSpecBuilder(GET_PRODUCTS_LIST)
                 .build();
     }
 
