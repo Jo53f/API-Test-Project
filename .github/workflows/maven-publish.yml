@@ -43,7 +43,7 @@ jobs:
       if: always()
       run: |
         mkdir -p public
-        cp target/testReport.html public/
+        cp target/testReport.html public/index.html
 
     - name: Upload Pages artifact
       if: always()
