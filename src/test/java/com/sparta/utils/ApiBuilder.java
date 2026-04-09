@@ -33,9 +33,8 @@ public class ApiBuilder {
                         "Accept", "*/*"
                 ));
     }
-
-    public static RequestSpecification getBrandsList() {
-        return getBaseSpecBuilder(GET_PRODUCTS_LIST)
+    public static RequestSpecification verifyLogin() {
+        return getBaseSpecBuilder(POST_VERIFY_LOGIN)
                 .build();
     }
 }
