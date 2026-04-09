@@ -6,34 +6,64 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-# name: Java CI with Maven
+name: Java CI with Maven
 
-# on:
-#   push:
-#     branches: [ "dev" ]
-#   pull_request:
-#     branches: [ "main" ]
+on:
+  push:
+    branches: [ "dev" ]
 
-# jobs:
-#   build:
+  pull_request:
+    branches: [ "master" ]
 
-#     runs-on: ubuntu-latest
+jobs:
+  build:
 
-#     steps:
-#     - uses: actions/checkout@v4
-#     - name: Set up JDK 21
-#       uses: actions/setup-java@v4
-#       with:
-#         java-version: '21'
-#         distribution: 'temurin'
-#         cache: maven
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        cache: maven
         
-#     - name: Run Cucumber tests
-#       run: mvn clean verify -Dtest=CucumberRunnerTest
+    - name: Run Cucumber tests
+      run: mvn clean verify -Dtest=CucumberRunnerTest
 
-#     - name: Upload Cucumber Report
-#       if: always()
-#       uses: actions/upload-artifact@v4
-#       with:
-#         name: cucumber-report
-#         path: target
+    - name: Make Cucumber Report Available for download
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: cucumber-report
+        path: target/
+
+    - name: Copy report to publish folder
+      if: always()
+      run: |
+        mkdir -p public
+        cp target/testReport.html public/index.html
+
+    - name: Upload Pages artifact
+      if: always()
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: public
+
+  deploy:
+    needs: build
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
