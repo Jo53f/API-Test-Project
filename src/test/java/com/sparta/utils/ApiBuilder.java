@@ -39,6 +39,15 @@ public class ApiBuilder {
     public static final String DELETE_VERIFY_LOGIN = resource.getString("automation.delete_verify_login");
     public static final String DELETE_ACCOUNT = resource.getString("automation.delete_account");
 
+    private static RequestSpecBuilder getBaseSpecBuilder(String path) {
+        return new RequestSpecBuilder()
+                .setBaseUri(BASE_URI)
+                .setBasePath(path)
+                .addHeaders(Map.of(
+                        "Accept", "*/*"
+                ));
+    }
+
     private static RequestSpecification getBaseRequest() {
         return new RequestSpecBuilder()
                 .setBaseUri(BASE_URI)
@@ -83,7 +92,6 @@ public class ApiBuilder {
                 .log().all()
                 .extract()
                 .response();
-    }
     }
     public static RequestSpecification signUp() {
         return getBaseSpecBuilder(POST_CREATE_ACCOUNT)
