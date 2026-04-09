@@ -53,6 +53,9 @@ GitHub repo with feature branches & regular commits
 
 Project Structure
 
+<img width="2185" height="1135" alt="image" src="https://github.com/user-attachments/assets/ceb1db55-4015-401a-a402-707cdd9b9d53" />
+
+
 
 Endpoints Covered
 
@@ -209,6 +212,8 @@ No critical bugs
 👥 Contributors
 Team of 8 Automation Test Engineers
 Working collaboratively using Scrum methodology.
+
+
 
 
 
