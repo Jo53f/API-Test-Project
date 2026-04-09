@@ -7,7 +7,7 @@ import io.restassured.parsing.Parser;
 import io.restassured.response.Response;
 import static org.hamcrest.Matchers.*;
 
-class SearchSteps {
+public class SearchSteps {
     private Response response;
 
     @Given("the API is available for searching")
