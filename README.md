@@ -3,7 +3,7 @@ PROJECT OVERVIEW
 This project is a robust, BDD-driven test automation framework designed to validate the Automation Exercise REST API. 
 Developed by a Scrum team of 8, the framework ensures the reliability of core business logic such as product retrieval, brand management, and user authentication.
 
-🧱 Framework Architecture
+🧱 FRAMEWORK ARCHITECHTURE
 The framework is built around:
 
 Service Object Model (SOM) for clean separation of API logic
@@ -18,7 +18,7 @@ Mockito for unit testing helper utilities
 
 Maven for dependency management and build automation
 
-Tech Stack
+TECH STACK
 Language: Java 17
 
 API Client: RestAssured
@@ -38,7 +38,7 @@ IntelliJ IDEA (recommended)
 
 
 
-📌 Features
+📌 FEATURES
 
 Automated tests for 3+ API endpoints
 
@@ -53,7 +53,7 @@ Clean, modular framework structure
 GitHub repo with feature branches & regular commits
 
 
-Endpoints Covered
+END POINTS COVERED
 
 At least three endpoints are fully validated, including:
 
@@ -82,7 +82,7 @@ Validate error handling
 Validate success response
 
 
-✔️ Test Coverage
+✔️ TEST COVERAGE
 
 
 Happy Path Tests
@@ -108,7 +108,7 @@ Sad Path Tests
 5.Boundary value tests
 
 
-▶️ Running the Framework
+▶️ RUNNING THE FRAMEWORK
 
 Install dependencies : mvn clean install
 
@@ -120,7 +120,7 @@ Run unit tests only : mvn -Dtest=*UnitTest test
 
 
 
-🧩 Extending the Framework
+🧩 EXTENDING THE FRAMEWORK
 To add a new endpoint:
 
 1.Create a new Client class under clients/
@@ -138,7 +138,7 @@ To add a new endpoint:
 This ensures consistency and maintainability for future teams.
 
 
-📌 Git Workflow
+📌 GIT WORKFLOW
 
 This project follows GitHub Flow:
 
@@ -165,7 +165,7 @@ Josef-Subscription
 Leonidas-ContactUs
 
 
-📌 Scrum & Project Board
+📌 SCRUM & PROJECT BOARD
 
 A GitHub projectboard was used with 7 columns:
 
@@ -183,7 +183,8 @@ Done
 
 Notes (Goal + DoD)
 
-Project Goal
+
+PROJECT GOAL:
 
 Deliver a complete, maintainable API testing framework for AutomationExercise API within one sprint.
 
@@ -202,7 +203,7 @@ Feature merged into dev
 No critical bugs
 
 
-📌 Class Diagram
+📌 CLASS DIAGRAM
 
 
 ```mermaid 
@@ -373,7 +374,7 @@ SignUpSteps  ..>  ApiBuilder
 ```
 
 
-👥 Contributors
+👥 CONTRIBUTORS
 Team of 8 Automation Test Engineers
 Working collaboratively using Scrum methodology.
 
