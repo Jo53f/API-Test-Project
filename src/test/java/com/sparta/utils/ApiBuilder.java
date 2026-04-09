@@ -20,6 +20,7 @@ public class ApiBuilder {
     public static final String POST_SEARCH_PRODUCT = resource.getString("automation.post_search_product");
     public static final String POST_VERIFY_LOGIN = resource.getString("automation.post_verify_login");
     public static final String POST_CREATE_ACCOUNT = resource.getString("automation.post_create_account");
+    public static final String POST_BRANDS_LIST = resource.getString("automation.post_brands_list");
 
     public static final String PUT_ALL_BRANDS = resource.getString("automation.put_all_brands");
     public static final String PUT_UPDATE_ACCOUNT = resource.getString("automation.put_update_account");
@@ -46,10 +47,11 @@ public class ApiBuilder {
                 .build();
     }
 
-    public static RequestSpecification postSearchProduct() {
-        return getBaseSpecBuilder(POST_SEARCH_PRODUCT)
+    public static RequestSpecification postBrandsList() {
+        return getBaseSpecBuilder(POST_BRANDS_LIST)
                 .build();
     }
+
 
     public static void configure() {
         // Treat text/html responses as JSON
