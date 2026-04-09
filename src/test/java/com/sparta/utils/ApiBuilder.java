@@ -36,7 +36,10 @@ public class ApiBuilder {
                         "Accept", "*/*"
                 ));
     }
-
+    public static RequestSpecification verifyLogin() {
+        return getBaseSpecBuilder(POST_VERIFY_LOGIN)
+                .build();
+    }
 
     public static RequestSpecification signUp() {
         return getBaseSpecBuilder(POST_CREATE_ACCOUNT)
