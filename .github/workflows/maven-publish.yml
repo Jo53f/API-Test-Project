@@ -40,17 +40,20 @@ jobs:
         path: target/
 
     - name: Copy report to publish folder
+      if: always()
       run: |
         mkdir -p public
         cp target/testReport.html public/
 
     - name: Upload Pages artifact
+      if: always()
       uses: actions/upload-pages-artifact@v3
       with:
         path: public
 
   deploy:
     needs: build
+    if: always()
     runs-on: ubuntu-latest
     permissions:
       pages: write
