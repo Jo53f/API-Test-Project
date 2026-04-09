@@ -1,3 +1,4 @@
+PROJECT OVERVIEW
 This project is a robust, BDD-driven test automation framework designed to validate the Automation Exercise REST API. 
 Developed by a Scrum team of 8, the framework ensures the reliability of core business logic such as product retrieval, brand management, and user authentication.
 
@@ -23,18 +24,19 @@ Maven 3.8.1+
 
 IntelliJ IDEA (recommended)
 
-Features
-. Automated tests for 3+ API endpoints
+📌 Features
+Automated tests for 3+ API endpoints
 
-. Happy & sad path coverage
+Happy & sad path coverage
 
-. Unit tests for helper logic using Mockito
+Unit tests for helper logic using Mockito
 
-. Optional Cucumber BDD support
+Optional Cucumber BDD support
 
-. Clean, modular framework structure
+Clean, modular framework structure
 
-. GitHub repo with feature branches & regular commits
+GitHub repo with feature branches & regular commits
+
 
 Project Structure
 
@@ -62,5 +64,27 @@ Validate required fields
 Validate error handling
 
 Validate success response
+
+
+✔️ Test Coverage
+Happy Path Tests
+Valid requests return correct status codes
+
+Response body contains expected fields
+
+Schema validation
+
+Data integrity checks
+
+Sad Path Tests
+Missing fields
+
+Invalid data types
+
+Incorrect credentials
+
+Unsupported methods
+
+Boundary value tests
 
 
