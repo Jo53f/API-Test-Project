@@ -1,9 +1,7 @@
 package com.sparta.steps;
 
-import com.sparta.pojobrands.Brands;
 import com.sparta.utils.ApiBuilder;
 import io.cucumber.java.BeforeAll;
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
