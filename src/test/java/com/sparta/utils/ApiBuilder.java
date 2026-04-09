@@ -42,6 +42,11 @@ public class ApiBuilder {
                 .build();
     }
 
+    public static RequestSpecification postProductsList() {
+        return getBaseSpecBuilder(POST_ALL_PRODUCTS)
+                .build();
+    }
+
     public static RequestSpecification getBrandsList() {
         return getBaseSpecBuilder(GET_BRANDS_LIST)
                 .build();
