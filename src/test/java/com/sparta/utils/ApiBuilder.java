@@ -7,7 +7,6 @@ import io.restassured.response.Response;
 import io.restassured.RestAssured;
 import io.restassured.parsing.Parser;
 import io.restassured.specification.RequestSpecification;
-
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -39,13 +38,14 @@ public class ApiBuilder {
     public static final String DELETE_VERIFY_LOGIN = resource.getString("automation.delete_verify_login");
     public static final String DELETE_ACCOUNT = resource.getString("automation.delete_account");
 
-    private static RequestSpecBuilder getBaseSpecBuilder(String path) {
+    public static RequestSpecification searchProductSpec(String productName) {
         return new RequestSpecBuilder()
                 .setBaseUri(BASE_URI)
-                .setBasePath(path)
-                .addHeaders(Map.of(
-                        "Accept", "*/*"
-                ));
+                .setBasePath(SEARCH_PATH)
+                .setContentType("application/x-www-form-urlencoded")
+                .addFormParam("search_product", productName)
+                .addHeaders(Map.of("Accept", "*/*"))
+                .build();
     }
 
     private static RequestSpecification getBaseRequest() {
